@@ -1,0 +1,30 @@
+.title {
+    width: 100vw;
+    height: 100vh;
+    background-color: #B31B1B;
+    padding: 0;
+    margin: 0;
+}
+
+.title-text {
+    color: #FFFFFF;
+    text-align: center;
+    position: absolute;
+    top: 35%;
+
+}
+
+.title-text > h1 {
+    font-size: 80px;
+    display: inline-block;
+    margin: 0;
+
+}
+
+.title-text > h3 {
+    font-size: 60px;
+    display: inline-block;
+    margin: 0;
+    margin-top: 0.25em;
+    font-weight: normal;
+}
