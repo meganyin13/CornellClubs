@@ -1,0 +1,15 @@
+.searchBox {
+  position: absolute;
+  top: 60%;
+  left: 22%;
+  margin: 0 auto;
+}
+
+.searchBox > input {
+  width: 55vw;
+  height: 7vh;
+  font-size: 60px;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+}
