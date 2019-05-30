@@ -5,8 +5,10 @@ import './SearchBox.css';
 export default class SearchBox extends Component {
   constructor(props) {
     super(props);
+    // const { clickOutside } = this.props;
     this.state = {
       query: '',
+      showOptions: false,
     };
   }
 
@@ -16,12 +18,32 @@ export default class SearchBox extends Component {
     });
   }
 
+  showOptions(e) {
+    console.log('in!');
+    this.setState({
+      showOptions: true,
+    });
+  }
+
+  handleClick = (e) => {
+    console.log('hi');
+    if (this.node.contains(e.target)) {
+      this.setState({
+        showOptions: true,
+      })
+    } else {
+      this.setState({
+        showOptions: false,
+      })
+    }
+  };
+
   render() {
-    const { query } = this.state;
+    const { query, showOptions } = this.state;
     const { data } = this.props;
     const filteredData = data.filter(
-      d => d.clubName.indexOf(query.toLowerCase()) !== -1
-        || d.shortName.indexOf(query.toLowerCase()) !== -1,
+      d => d.clubName.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        || d.shortName.toLowerCase().indexOf(query.toLowerCase()) !== -1,
     );
     return (
       <div className="searchBox">
@@ -31,12 +53,15 @@ export default class SearchBox extends Component {
           value={this.state.query}
           placeholder="Search by Club Name..."
           onChange={this.updateSearch.bind(this)}
+          list="clubs"
+          onClick={this.showOptions.bind(this)}
+          ref={node => this.node = node}
         />
-        <ul>
+        <div className="searchBox-options" style={{ display: showOptions ? 'block' : 'None' }}>
           {
-            filteredData.map((d, i) => <li key={i}>{d.clubName}</li>)
+            filteredData.map((d, i) => <a href={`/#/${d.shortName}`} key={i}>{d.clubName}</a>)
           }
-        </ul>
+        </div>
       </div>
     );
   }
@@ -44,4 +69,5 @@ export default class SearchBox extends Component {
 
 SearchBox.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-}
+  // clickOutside: PropTypes.bool.isRequired,
+};

@@ -1,6 +1,6 @@
 .searchBox {
   position: absolute;
-  top: 60%;
+  top: 45%;
   left: 22%;
   margin: 0 auto;
 }
@@ -12,4 +12,28 @@
   border-radius: 20px;
   padding: 10px;
   text-align: center;
+}
+
+.searchBox > .searchBox-options {
+  height: 40vh;
+  overflow: auto;
+  border-radius: 20px;
+}
+
+.searchBox > .searchBox-options > a {
+  display: block;
+  background-color: #FFFFFF;
+  font-size: 35px;
+  height: 1.5em;
+  padding: 0.2em 0.7em;
+  text-decoration: none;
+  color: black;
+}
+
+.searchBox > .searchBox-options > a:hover {
+  background-color: lightgray;
+}
+
+.searchBox > .searchBox-options > a:visited {
+  color: black;
 }
