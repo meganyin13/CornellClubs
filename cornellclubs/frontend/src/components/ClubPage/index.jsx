@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Banner from './Banner';
 import './index.css';
-import Blurb from "./Blurb";
+import Blurb from './Blurb';
+import Sidebar from './Sidebar';
 
 const ClubPage = (props) => {
   const { data, name } = props;
@@ -13,6 +14,15 @@ const ClubPage = (props) => {
     <div className="clubpage">
       <Banner logo={clubData.logo} coverPhoto={clubData.coverPhoto} name={clubData.clubName} />
       <Blurb text={clubData.blurb} />
+      <Sidebar
+        openApps={clubData.openApps}
+        officers={clubData.officers}
+        email={clubData.email}
+        website={clubData.website}
+        facebook={clubData.facebook}
+        appLink={clubData.appLink}
+        tags={clubData.tags}
+      />
     </div>
   );
 };
