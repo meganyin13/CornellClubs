@@ -1,7 +1,8 @@
 import React from 'react';
+import './NotApplyButton.css';
 
 const NotApplyButton = () => (
-  <div>
+  <div className="notApplyButton">
     Not Accepting Applications
   </div>
 );

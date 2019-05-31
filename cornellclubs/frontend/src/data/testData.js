@@ -28,7 +28,7 @@ const testData = [
     logo: 'dtiteam_logo.png',
     coverPhoto: 'dtiteam_cover.jpg',
     blurb: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra. Id interdum velit laoreet id. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Lobortis feugiat vivamus at augue eget. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Laoreet non curabitur gravida arcu ac tortor dignissim convallis aenean. Et tortor consequat id porta nibh venenatis cras sed. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Neque laoreet suspendisse interdum consectetur. Lacinia at quis risus sed. Rhoncus dolor purus non enim. Diam phasellus vestibulum lorem sed risus. Mauris nunc congue nisi vitae suscipit tellus. Aenean sed adipiscing diam donec adipiscing tristique risus nec.\n',
-    openApps: true,
+    openApps: false,
     appLink: '#',
     website: 'google.com',
     email: 'no@gmail.com',
