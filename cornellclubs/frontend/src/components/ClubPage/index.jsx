@@ -13,16 +13,18 @@ const ClubPage = (props) => {
   return (
     <div className="clubpage">
       <Banner logo={clubData.logo} coverPhoto={clubData.coverPhoto} name={clubData.clubName} />
-      <Blurb text={clubData.blurb} />
-      <Sidebar
-        openApps={clubData.openApps}
-        officers={clubData.officers}
-        email={clubData.email}
-        website={clubData.website}
-        facebook={clubData.facebook}
-        appLink={clubData.appLink}
-        tags={clubData.tags}
-      />
+      <div className="body">
+        <Blurb text={clubData.blurb} />
+        <Sidebar
+          openApps={clubData.openApps}
+          officers={clubData.officers}
+          email={clubData.email}
+          website={clubData.website}
+          facebook={clubData.facebook}
+          appLink={clubData.appLink}
+          tags={clubData.tags}
+        />
+      </div>
     </div>
   );
 };

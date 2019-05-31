@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ApplyButton from './ApplyButton';
 import NotApplyButton from './NotApplyButton';
+import './index.css';
 
 const Sidebar = ({ openApps, appLink, website, email, facebook, tags, officers }) => (
   <div className="sidebar">
