@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ApplyButton from './ApplyButton';
 import NotApplyButton from './NotApplyButton';
 import './index.css';
+import ClubLinks from './ClubLinks';
 
 const Sidebar = ({ openApps, appLink, website, email, facebook, tags, officers }) => (
   <div className="sidebar">
@@ -11,6 +12,7 @@ const Sidebar = ({ openApps, appLink, website, email, facebook, tags, officers }
         ? <ApplyButton link={appLink} />
         : <NotApplyButton />
     }
+    <ClubLinks website={website} email={email} facebook={facebook} />
   </div>
 );
 

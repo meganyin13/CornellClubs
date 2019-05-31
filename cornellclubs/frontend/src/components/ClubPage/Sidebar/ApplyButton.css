@@ -6,4 +6,9 @@
   text-align: center;
   margin: 0 auto;
   display: block;
+  font-weight: bold;
+}
+
+.applyButton:hover {
+  background-color: #5FD472;
 }
