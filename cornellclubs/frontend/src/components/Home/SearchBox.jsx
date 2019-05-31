@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SearchBox.css';
 
 export default class SearchBox extends Component {
@@ -20,8 +21,9 @@ export default class SearchBox extends Component {
 
   showOptions(e) {
     console.log('in!');
+    const { showOptions } = this.state;
     this.setState({
-      showOptions: true,
+      showOptions: !showOptions,
     });
   }
 
@@ -47,21 +49,27 @@ export default class SearchBox extends Component {
     );
     return (
       <div className="searchBox">
-        <input
-          type="text"
-          name="clubSearch"
-          value={this.state.query}
-          placeholder="Search by Club Name..."
-          onChange={this.updateSearch.bind(this)}
-          list="clubs"
-          onClick={this.showOptions.bind(this)}
-          ref={node => this.node = node}
-        />
+        <div className="input">
+          <input
+            type="text"
+            name="clubSearch"
+            value={this.state.query}
+            placeholder="Search by Club Name..."
+            onChange={this.updateSearch.bind(this)}
+            list="clubs"
+            onClick={this.showOptions.bind(this)}
+            // ref={node => this.node = node}
+          />
+          <button onClick={this.showOptions.bind(this)}>
+            {showOptions ? <FontAwesomeIcon icon='chevron-up'/> : <FontAwesomeIcon icon='chevron-down'/>}
+          </button>
+        </div>
         <div className="searchBox-options" style={{ display: showOptions ? 'block' : 'None' }}>
           {
             filteredData.map((d, i) => <a href={`/#/${d.shortName}`} key={i}>{d.clubName}</a>)
           }
         </div>
+
       </div>
     );
   }

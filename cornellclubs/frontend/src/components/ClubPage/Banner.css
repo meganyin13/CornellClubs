@@ -1,0 +1,27 @@
+.banner {
+  height: 20vh;
+  width: 100vw;
+}
+
+.cover {
+  height: 40vh;
+  width: 100vw;
+  object-fit: cover;
+}
+
+.logo {
+  border-radius: 50%;
+  height: 20vh;
+  width: 20vh;
+  float: left;
+  position: relative;
+  bottom: 20vh;
+  margin: 0 2vh;
+}
+
+.banner > h1 {
+  float: left;
+  position: relative;
+  bottom: 15vh;
+  font-size: 60px;
+}

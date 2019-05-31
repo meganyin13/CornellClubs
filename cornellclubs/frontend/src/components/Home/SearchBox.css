@@ -1,23 +1,29 @@
 .searchBox {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 22%;
   margin: 0 auto;
 }
 
-.searchBox > input {
+.searchBox > .input > input {
   width: 55vw;
   height: 7vh;
   font-size: 60px;
-  border-radius: 20px;
+  /*border-radius: 20px;*/
   padding: 10px;
   text-align: center;
 }
 
+.searchBox > .input > button {
+  font-size: 60px;
+  height: 10vh;
+  padding: 5px 15px;
+}
+
 .searchBox > .searchBox-options {
-  height: 40vh;
+  height: 30vh;
   overflow: auto;
-  border-radius: 20px;
+  /*border-radius: 20px;*/
 }
 
 .searchBox > .searchBox-options > a {
