@@ -16,13 +16,13 @@
   width: 15vh;
   float: left;
   position: relative;
-  bottom: 15vh;
-  margin: 0 2vh;
+  bottom: 17vh;
+  margin: 0 5vh;
 }
 
 .banner > h1 {
   float: left;
   position: relative;
-  bottom: 12vh;
+  bottom: 13vh;
   font-size: 50px;
 }
