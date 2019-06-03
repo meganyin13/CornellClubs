@@ -1,0 +1,18 @@
+.officers {
+  width: 15vw;
+  margin: 1.5em 0 1.5em 8em;
+}
+
+.officer {
+  margin: 1em 0;
+}
+
+.officer > img {
+  border-radius: 50%;
+  width: 5vw;
+}
+
+.officer > p {
+  float: right;
+  font-size: 1.25em;
+}

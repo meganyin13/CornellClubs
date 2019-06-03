@@ -10,4 +10,13 @@
   font-size: 1.5em;
   padding: 0.1em;
   width: 5vw;
+  color: #0470f5;
+}
+
+.clubLinks > a:hover {
+  color: #0470f5d9;
+}
+
+.clubLinks > a:visited {
+  color: #0470f5;
 }
