@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ApplyButton from './ApplyButton';
 import NotApplyButton from './NotApplyButton';
-import './index.css';
 import ClubLinks from './ClubLinks';
+import RelevantTags from './RelevantTags';
+import Officers from './Officers';
+import './index.css';
 
 const Sidebar = ({ openApps, appLink, website, email, facebook, tags, officers }) => (
   <div className="sidebar">
@@ -13,6 +15,8 @@ const Sidebar = ({ openApps, appLink, website, email, facebook, tags, officers }
         : <NotApplyButton />
     }
     <ClubLinks website={website} email={email} facebook={facebook} />
+    <RelevantTags tags={tags} />
+    <Officers officers={officers} />
   </div>
 );
 

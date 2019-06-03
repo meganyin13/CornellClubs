@@ -33,15 +33,15 @@ const testData = [
     website: 'www.cornelldti.org',
     email: 'hello@cornelldti.org',
     facebook: 'www.facebook.com/cornelldti/',
-    tags: ['a', 'b', 'c'],
+    tags: ['webdev', 'appdev', 'design', 'productmanagement', 'engineering'],
     officers: [
       {
         name: 'John Smith',
-        picture: 'john.jpg',
+        picture: 'dummyOfficer.png',
       },
       {
         name: 'Tim Apple',
-        picture: 'apple.jpg',
+        picture: 'dummyOfficer.png',
       },
     ],
   },

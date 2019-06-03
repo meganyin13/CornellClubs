@@ -1,0 +1,10 @@
+.relevantTags {
+  width: 15vw;
+  margin: 1em 8em;
+}
+
+.relevantTags > p {
+  display: block;
+  margin: 0.25em 1em;
+  font-size: 1.25em;
+}

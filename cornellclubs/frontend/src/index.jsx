@@ -5,12 +5,12 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
   faChevronDown,
   faChevronUp,
-  faEnvelopeSquare,
+  faEnvelope,
   faGlobe,
 } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
 import './index.css';
 
-library.add(fab, faChevronDown, faChevronUp, faEnvelopeSquare, faGlobe);
+library.add(fab, faChevronDown, faChevronUp, faEnvelope, faGlobe);
 
 ReactDOM.render(<App />, document.getElementById('root'));

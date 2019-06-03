@@ -9,7 +9,7 @@ const ClubLinks = ({ website, email, facebook }) => (
       <FontAwesomeIcon icon="globe" size="2x" />
     </a>
     <a className="email" href={email}>
-      <FontAwesomeIcon icon="envelope-square" size="2x" />
+      <FontAwesomeIcon icon="envelope" size="2x" />
     </a>
     <a className="facebook" href={facebook}>
       <FontAwesomeIcon icon={['fab', 'facebook']} size="2x" />
