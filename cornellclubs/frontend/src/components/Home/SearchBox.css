@@ -9,7 +9,6 @@
   width: 55vw;
   height: 7vh;
   font-size: 60px;
-  /*border-radius: 20px;*/
   padding: 10px;
   text-align: center;
 }
@@ -23,7 +22,7 @@
 .searchBox > .searchBox-options {
   height: 30vh;
   overflow: auto;
-  /*border-radius: 20px;*/
+  width: 62.5vw;
 }
 
 .searchBox > .searchBox-options > a {
@@ -34,6 +33,9 @@
   padding: 0.2em 0.7em;
   text-decoration: none;
   color: black;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .searchBox > .searchBox-options > a:hover {
