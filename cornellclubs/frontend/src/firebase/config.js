@@ -1,12 +1,14 @@
 import firebase from 'firebase';
 
-const config = {
-  apiKey: "AIzaSyDblTESEB1SbAVkpy2q39DI2OHphL2-Jxw",
-  authDomain: "fun-food-friends-eeec7.firebaseapp.com",
-  databaseURL: "https://fun-food-friends-eeec7.firebaseio.com",
-  projectId: "fun-food-friends-eeec7",
-  storageBucket: "fun-food-friends-eeec7.appspot.com",
-  messagingSenderId: "144750278413"
+const firebaseConfig = {
+  apiKey: 'AIzaSyDgLMyix7uYcSlvLq0IAAFqDxg2j3QJz-c',
+  authDomain: 'cornell-clubs.firebaseapp.com',
+  databaseURL: 'https://cornell-clubs.firebaseio.com',
+  projectId: 'cornell-clubs',
+  storageBucket: 'cornell-clubs.appspot.com',
+  messagingSenderId: '1030476234221',
+  appId: '1:1030476234221:web:d9c1b0168afbbf57'
 };
-firebase.initializeApp(config);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 export default firebase;
