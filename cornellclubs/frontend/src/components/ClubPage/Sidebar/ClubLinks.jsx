@@ -5,25 +5,48 @@ import './ClubLinks.css';
 
 const ClubLinks = ({ website, email, facebook }) => (
   <div className="clubLinks">
-    <a className="website" href={website}>
-      <FontAwesomeIcon icon="globe" size="2x" />
-    </a>
-    <a className="email" href={email}>
-      <FontAwesomeIcon icon="envelope" size="2x" />
-    </a>
-    <a className="facebook" href={facebook}>
-      <FontAwesomeIcon icon={['fab', 'facebook']} size="2x" />
-    </a>
+    {
+      (
+        website
+        && (
+          <a className="website" href={website}>
+            <FontAwesomeIcon icon="globe" size="2x" />
+          </a>
+        )
+      )
+    }
+    {
+      (
+        email
+        && (
+          <a className="email" href={email}>
+            <FontAwesomeIcon icon="envelope" size="2x" />
+          </a>
+        )
+      )
+    }
+    {
+      (
+        facebook
+        && (
+          <a className="facebook" href={facebook}>
+            <FontAwesomeIcon icon={['fab', 'facebook']} size="2x" />
+          </a>
+        )
+      )
+    }
   </div>
 );
 
 ClubLinks.defaultProps = {
+  website: null,
+  email: null,
   facebook: null,
 };
 
 ClubLinks.propTypes = {
-  website: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+  website: PropTypes.string,
+  email: PropTypes.string,
   facebook: PropTypes.string,
 };
 
