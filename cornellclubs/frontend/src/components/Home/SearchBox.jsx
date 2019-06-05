@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SearchBox.css';
+import sleep from "../../util/sleep";
 
 export default class SearchBox extends Component {
   constructor(props) {
     super(props);
-    // const { clickOutside } = this.props;
     this.state = {
       query: '',
       showOptions: false,
@@ -19,26 +19,25 @@ export default class SearchBox extends Component {
     });
   }
 
-  showOptions(e) {
-    console.log('in!');
+  showOptions() {
     const { showOptions } = this.state;
     this.setState({
       showOptions: !showOptions,
     });
   }
 
-  handleClick = (e) => {
-    console.log('hi');
-    if (this.node.contains(e.target)) {
-      this.setState({
-        showOptions: true,
-      })
-    } else {
-      this.setState({
-        showOptions: false,
-      })
-    }
-  };
+  handleClick(clubName) {
+    console.log(clubName);
+    this.setState({
+      query: clubName,
+      showOptions: false,
+    });
+    sleep(300).then(
+      () => window.scroll({
+        top: window.innerHeight, left: 0, behavior: 'smooth',
+      }),
+    );
+  }
 
   render() {
     const { query, showOptions } = this.state;
@@ -53,20 +52,23 @@ export default class SearchBox extends Component {
           <input
             type="text"
             name="clubSearch"
-            value={this.state.query}
+            value={query}
             placeholder="Search by Club Name..."
             onChange={this.updateSearch.bind(this)}
             list="clubs"
             onClick={this.showOptions.bind(this)}
-            // ref={node => this.node = node}
           />
-          <button onClick={this.showOptions.bind(this)}>
-            {showOptions ? <FontAwesomeIcon icon='chevron-up'/> : <FontAwesomeIcon icon='chevron-down'/>}
+          <button type="submit" onClick={this.showOptions.bind(this)}>
+            {showOptions ? <FontAwesomeIcon icon="chevron-up" /> : <FontAwesomeIcon icon="chevron-down" />}
           </button>
         </div>
         <div className="searchBox-options" style={{ display: showOptions ? 'block' : 'None' }}>
           {
-            filteredData.map((d, i) => <a href={`/#/${d.shortName}`} key={i}>{d.clubName}</a>)
+            filteredData.map((d, i) => (
+              <a href={`/#/${d.shortName}`} onClick={() => this.handleClick(d.clubName)} key={i}>
+                {d.clubName}
+              </a>
+            ))
           }
         </div>
 
@@ -77,5 +79,4 @@ export default class SearchBox extends Component {
 
 SearchBox.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  // clickOutside: PropTypes.bool.isRequired,
 };
