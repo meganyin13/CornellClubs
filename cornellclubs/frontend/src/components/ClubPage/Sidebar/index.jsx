@@ -23,6 +23,7 @@ const Sidebar = ({ openApps, appLink, website, email, facebook, tags, officers }
 Sidebar.defaultProps = {
   appLink: null,
   facebook: null,
+  email: null,
   tags: [],
 };
 
@@ -30,7 +31,7 @@ Sidebar.propTypes = {
   openApps: PropTypes.bool.isRequired,
   appLink: PropTypes.string,
   website: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+  email: PropTypes.string,
   facebook: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   officers: PropTypes.arrayOf(PropTypes.object).isRequired,
