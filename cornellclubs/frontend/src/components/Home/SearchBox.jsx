@@ -44,7 +44,8 @@ export default class SearchBox extends Component {
     const { data } = this.props;
     const filteredData = data.filter(
       d => d.clubName.toLowerCase().indexOf(query.toLowerCase()) !== -1
-        || d.shortName.toLowerCase().indexOf(query.toLowerCase()) !== -1,
+        || d.shortName.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        || d.tags.includes(query.toLowerCase().replace(' ', '')),
     );
     return (
       <div className="searchBox">
