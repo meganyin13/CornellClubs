@@ -13,7 +13,7 @@
 .logo {
   border-radius: 50%;
   height: 15vh;
-  width: 15vh;
+  width: 9vw;
   float: left;
   position: relative;
   bottom: 17vh;
@@ -25,4 +25,8 @@
   position: relative;
   bottom: 13vh;
   font-size: 50px;
+  width: 80vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
