@@ -1,5 +1,5 @@
 .banner {
-  height: 20vh;
+  height: 30vh;
   width: 100vw;
 }
 
@@ -12,17 +12,19 @@
 .logo {
   border-radius: 50%;
   height: 15vh;
-  width: 9vw;
+  width: 15vh;
   float: left;
   position: relative;
   bottom: 17vh;
   margin: 0 5vh;
+  border: solid #cbd1cf;
+  padding: 1vh;
 }
 
 .banner > h1 {
   float: left;
   position: relative;
-  bottom: 16vh;
+  bottom: 20vh;
   font-size: 50px;
   max-width: 80vw;
   overflow: hidden;
