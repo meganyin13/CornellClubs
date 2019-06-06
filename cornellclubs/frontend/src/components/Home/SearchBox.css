@@ -1,22 +1,27 @@
 .searchBox {
   position: absolute;
   top: 50%;
-  left: 22%;
-  margin: 0 auto;
+  left: 20%;
+  margin: 2em auto;
 }
 
 .searchBox > .input > input {
   width: 55vw;
-  height: 7vh;
+  height: 70px;
   font-size: 60px;
   padding: 10px;
   text-align: center;
 }
 
+.searchBox svg {
+  vertical-align: top;
+}
+
 .searchBox > .input > button {
-  font-size: 60px;
-  height: 10vh;
+  font-size: 70px;
+  height: 70px;
   padding: 5px 15px;
+  position: absolute;
 }
 
 .searchBox > .searchBox-options {

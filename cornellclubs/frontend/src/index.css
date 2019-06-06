@@ -2,6 +2,13 @@
 
 /* Sitewide styles */
 html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
     padding: 0;
     margin: 0;
 }
