@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SearchBox.css';
-import sleep from "../../util/sleep";
+import sleep from '../../util/sleep';
 
 export default class SearchBox extends Component {
   constructor(props) {

@@ -1,6 +1,8 @@
 # Lock Files (we probably need to comment out these later)
 **/package-lock.json
 
+**/firebase
+
 # Cache & History
 .npm
 .eslintcache
