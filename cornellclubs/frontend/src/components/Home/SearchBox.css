@@ -7,19 +7,20 @@
 
 .searchBox > .input > input {
   width: 55vw;
-  height: 70px;
+  height: 90px;
   font-size: 60px;
-  padding: 10px;
+  padding: 0.2em;
   text-align: center;
 }
 
 .searchBox svg {
-  vertical-align: top;
+  vertical-align: center;
 }
 
 .searchBox > .input > button {
   font-size: 70px;
-  height: 70px;
+  height: 90px;
+  width: 7vw;
   padding: 5px 15px;
   position: absolute;
 }
@@ -27,7 +28,7 @@
 .searchBox > .searchBox-options {
   height: 30vh;
   overflow: auto;
-  width: 62.5vw;
+  width: 62vw;
 }
 
 .searchBox > .searchBox-options > a {
