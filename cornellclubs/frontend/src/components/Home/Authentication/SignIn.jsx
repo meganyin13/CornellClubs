@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from '../../firebase/config';
-import './Authentication.css';
+import firebase from '../../../firebase/config';
+import './SignIn.css';
+import Profile from './Profile';
 
-class Authentication extends Component {
+class SignIn extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,6 +13,14 @@ class Authentication extends Component {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.provider = firebase.auth.GoogleAuthProvider.PROVIDER_ID;
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      }
+    });
   }
 
   login() {
@@ -49,9 +57,11 @@ class Authentication extends Component {
       },
     };
     return (
-      <StyledFirebaseAuth className="firebase-auth" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+      user
+        ? <Profile user={user} />
+        : <StyledFirebaseAuth className="firebase-auth" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     );
   }
 }
 
-export default Authentication;
+export default SignIn;

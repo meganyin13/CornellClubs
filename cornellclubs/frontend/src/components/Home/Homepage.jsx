@@ -2,7 +2,7 @@ import React from 'react';
 import './Homepage.css';
 import SearchBox from './SearchBox';
 import testData from '../../data/testData';
-import Authentication from './Authentication';
+import Authentication from './Authentication/SignIn';
 
 class Homepage extends React.Component {
   render() {
