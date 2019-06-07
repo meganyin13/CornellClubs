@@ -1,0 +1,33 @@
+.profile {
+  width: 15vw;
+  height: 10vh;
+  margin-right: 1.5em;
+  margin-top: 0.5em;
+  position: absolute;
+  right: 0;
+  border-radius: 1em;
+  /*background-color: #ECEFF1;*/
+}
+
+.profile:hover {
+  background-color: #eceff17a;
+}
+
+.profile > img {
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+  float: left;
+  margin: 1vw;
+}
+
+.profile > p {
+  display: block;
+  /*height: 5vw;*/
+  /*margin: auto 0;*/
+  position: relative;
+  bottom: 0.2em;
+  color: #FFFFFF;
+  float: left;
+  font-size: 1.5em;
+}

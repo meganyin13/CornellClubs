@@ -25,6 +25,10 @@
   position: absolute;
 }
 
+.searchBox > .input > button:hover {
+  color: #000000a6
+}
+
 .searchBox > .searchBox-options {
   height: 30vh;
   overflow: auto;

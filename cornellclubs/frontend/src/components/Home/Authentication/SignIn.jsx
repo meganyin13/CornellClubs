@@ -15,7 +15,7 @@ class SignIn extends Component {
     this.provider = firebase.auth.GoogleAuthProvider.PROVIDER_ID;
   }
 
-  componentDidMount() {
+  componentWillMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });

@@ -1,8 +1,16 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import firebase from '../../../firebase/config';
+import './Profile.css';
 
 const Profile = ({ user }) => (
-  <p>Hello!</p>
+  <div className="profile">
+    <img src={user.photoURL} alt="Profile" />
+    <p>{user.displayName || user.email}</p>
+  </div>
 );
+
+Profile.propTypes = {
+  user: firebase.User.isRequired,
+};
 
 export default Profile;

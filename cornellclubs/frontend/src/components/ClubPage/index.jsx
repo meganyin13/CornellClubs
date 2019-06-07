@@ -1,37 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Banner from './Banner';
+import ReactDOM from 'react-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import {
+  faChevronDown,
+  faChevronUp,
+  faEnvelope,
+  faGlobe,
+} from '@fortawesome/free-solid-svg-icons';
 import './index.css';
-import Blurb from './Blurb';
-import Sidebar from './Sidebar';
+import ClubPage from './ClubPage';
 
-const ClubPage = (props) => {
-  const { data, name } = props;
-  const clubData = data.filter(
-    d => d.clubName === name,
-  )[0];
-  return (
-    <div className="clubpage">
-      <Banner logo={clubData.logo} coverPhoto={clubData.coverPhoto} name={clubData.clubName} />
-      <div className="body">
-        <Blurb text={clubData.blurb} />
-        <Sidebar
-          openApps={clubData.openApps}
-          officers={clubData.officers}
-          email={clubData.email}
-          website={clubData.website}
-          facebook={clubData.facebook}
-          appLink={clubData.appLink}
-          tags={clubData.tags}
-        />
-      </div>
-    </div>
-  );
+library.add(fab, faChevronDown, faChevronUp, faEnvelope, faGlobe);
+
+const render = (data, clubName) => {
+  // ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+  ReactDOM.render(<ClubPage data={data} name={clubName} />, document.getElementById('root'));
 };
 
-ClubPage.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  name: PropTypes.string.isRequired,
-};
-
-export default ClubPage;
+export default render;
