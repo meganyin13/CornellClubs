@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router';
 import { HashRouter } from 'react-router-dom';
-import render from '../ClubPage/index';
 import Homepage from '../Home/Homepage';
+import ClubPage from '../ClubPage/ClubPage';
 
 const Router = (props) => {
   const { data } = props;
@@ -16,7 +16,7 @@ const Router = (props) => {
             key={i}
             exact
             path={`/${d.shortName}`}
-            render={() => render(data, d.clubName)}
+            render={p => <ClubPage name={d.clubName} data={data} {...p} />}
           />),
         )
       }
@@ -29,5 +29,3 @@ Router.propTypes = {
 };
 
 export default Router;
-
-// p => <ClubPage name={d.clubName} data={data} {...p} />
