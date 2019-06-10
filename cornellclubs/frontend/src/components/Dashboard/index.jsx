@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
+import './index.css';
 
 class Dashboard extends React.Component {
   constructor() {
@@ -21,17 +22,18 @@ class Dashboard extends React.Component {
   render() {
     const { user } = this.state;
     return (
-      <div className="dashboard">
-        {
-          user
-          && (
-          <h1>
-            Hi,
-            { user.displayName || user.email }
-          </h1>
-          )
-        }
-
+      <div className="wrapper">
+        <div className="dashboard">
+          {
+            user
+            && (
+            <h1>
+              { `Hi, ${user.displayName || user.email}` }
+            </h1>
+            )
+          }
+          <h3>Your Favorites</h3>
+        </div>
       </div>
     );
   }

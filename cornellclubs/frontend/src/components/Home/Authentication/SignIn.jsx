@@ -54,7 +54,7 @@ class SignIn extends Component {
         signInSuccessWithAuthResult: () => false,
       },
     };
-    console.log(typeof firebase.auth().currentUser)
+    console.log(typeof firebase.auth().currentUser);
     return (
       <StyledFirebaseAuth className="firebase-auth" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     );

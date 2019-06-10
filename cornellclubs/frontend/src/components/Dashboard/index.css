@@ -1,0 +1,24 @@
+.wrapper {
+  background-color: #B31B1B;
+  padding: 3em;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.dashboard {
+  width: 50vw;
+  height: 100%;
+  margin: 0 auto;
+  color: #FFFFFF;
+}
+
+.dashboard h1 {
+  margin: 0;
+  font-size: 3.5em;
+}
+
+.dashboard h3 {
+  font-size: 2.5em;
+  margin-left: 1em;
+}

@@ -33,3 +33,20 @@
   padding: 0.2em 0.4em;
   border-radius: 10px;
 }
+
+.banner svg {
+  width: 5em !important;
+  height: 5em !important;
+  color: white;
+}
+
+/*ffc824*/
+
+.banner button {
+  background-color: transparent;
+  border: none;
+  float: left;
+  position: relative;
+  bottom: 12vh;
+  margin-left: 1em;
+}
