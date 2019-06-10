@@ -1,23 +1,24 @@
 .firebase-auth {
   display: block;
   position: absolute;
-  left: 80vw;
+  left: 35vw;
+  top: 50vh;
 }
 
-/*.firebase-auth span {*/
-/*  font-size: 1em !important;*/
-/*  white-space: nowrap;*/
-/*  padding-left: 1em !important;*/
-/*}*/
+.firebase-auth span {
+  font-size: 2em !important;
+  white-space: nowrap;
+  padding-left: 1em !important;
+}
 
-/*.firebase-auth button {*/
-/*  width: 15vw !important;*/
-/*  max-width: 15vw !important;*/
-/*  padding: 0.8em 0.5em !important;*/
-/*}*/
+.firebase-auth button {
+  width: 27vw !important;
+  max-width: 27vw !important;
+  padding: 0.8em 0.5em !important;
+}
 
-/*.firebase-auth img {*/
-/*  width: 1em !important;*/
-/*  height: 1em !important;*/
-/*  margin-bottom: 2px;*/
-/* }*/
+.firebase-auth img {
+  width: 1.5em !important;
+  height: 1.5em !important;
+  margin-bottom: 2px;
+ }

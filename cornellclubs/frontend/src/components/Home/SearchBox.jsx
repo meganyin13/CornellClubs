@@ -66,7 +66,7 @@ export default class SearchBox extends Component {
         <div className="searchBox-options" style={{ display: showOptions ? 'block' : 'None' }}>
           {
             filteredData.map((d, i) => (
-              <a href={`/#/${d.shortName}`} onClick={() => this.handleClick(d.clubName)} key={i}>
+              <a href={`/#/search/${d.shortName}`} onClick={() => this.handleClick(d.clubName)} key={i}>
                 {d.clubName}
               </a>
             ))

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../../../firebase/config';
 import './SignIn.css';
-import Profile from './Profile';
 
 class SignIn extends Component {
   constructor() {
@@ -43,7 +42,6 @@ class SignIn extends Component {
   }
 
   render() {
-    const { user } = this.state;
     const uiConfig = {
       signInFlow: 'popup',
       signInOptions: [
@@ -56,10 +54,9 @@ class SignIn extends Component {
         signInSuccessWithAuthResult: () => false,
       },
     };
+    console.log(typeof firebase.auth().currentUser)
     return (
-      user
-        ? <Profile user={user} />
-        : <StyledFirebaseAuth className="firebase-auth" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+      <StyledFirebaseAuth className="firebase-auth" uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     );
   }
 }

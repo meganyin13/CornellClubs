@@ -1,12 +1,13 @@
 .profile {
   width: 15vw;
-  height: 10vh;
+  height: 9vh;
   margin-right: 1.5em;
-  margin-top: 0.5em;
+  margin-top: 1em;
   position: absolute;
   right: 0;
   border-radius: 1em;
-  /*background-color: #ECEFF1;*/
+  background-color: #B31B1B;
+  border-color: #B31B1B;
 }
 
 .profile:hover {
@@ -23,11 +24,10 @@
 
 .profile > p {
   display: block;
-  /*height: 5vw;*/
-  /*margin: auto 0;*/
   position: relative;
   bottom: 0.2em;
   color: #FFFFFF;
   float: left;
+  font-family: 'Lato', sans-serif;
   font-size: 1.5em;
 }

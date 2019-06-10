@@ -1,16 +1,21 @@
 import React from 'react';
-import firebase from '../../../firebase/config';
+import PropTypes from 'prop-types';
 import './Profile.css';
+import firebase from 'firebase';
 
 const Profile = ({ user }) => (
-  <div className="profile">
+  <a type="submit" href="/#/dashboard" className="profile">
     <img src={user.photoURL} alt="Profile" />
     <p>{user.displayName || user.email}</p>
-  </div>
+  </a>
 );
 
+// Profile.defaultProps = {
+//   user: null,
+// };
+
 Profile.propTypes = {
-  user: firebase.User.isRequired,
+  user: PropTypes.instanceOf(firebase.auth().currentUser).isRequired,
 };
 
 export default Profile;
