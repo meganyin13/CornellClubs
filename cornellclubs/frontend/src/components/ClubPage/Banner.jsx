@@ -5,8 +5,9 @@ import './Banner.css';
 import firebase from '../../firebase/config';
 
 class Banner extends React.Component {
-  constructor({ coverPhoto, logo, name }) {
-    super({ coverPhoto, logo, name });
+  constructor(props) {
+    super(props);
+    const { coverPhoto, logo, name } = this.props;
     this.state = {
       favorite: false,
       user: null,
@@ -19,6 +20,7 @@ class Banner extends React.Component {
     this.findItem = this.findItem.bind(this);
     this.addFavorite = this.addFavorite.bind(this);
     this.removeFavorite = this.removeFavorite.bind(this);
+    this.updateItems = this.updateItems.bind(this);
   }
 
   componentWillMount() {
@@ -37,6 +39,7 @@ class Banner extends React.Component {
     });
     favoritesRef.on('value', (snapshot) => {
       const items = snapshot.val();
+      // console.log(items);
       if (items) {
         Object.keys(items).forEach((key) => {
           favorite = items[key].clubName === name && items[key].email === user.email;
@@ -47,11 +50,32 @@ class Banner extends React.Component {
           });
         });
       }
+      this.setState({
+        user,
+        favorite,
+        items: newState,
+      });
     });
-    this.setState({
-      user,
-      favorite,
-      items: newState,
+  }
+
+  updateItems() {
+    const favoritesRef = firebase.database().ref('favorites');
+    const newState = [];
+    favoritesRef.on('value', (snapshot) => {
+      const items = snapshot.val();
+      if (items) {
+        Object.keys(items).forEach((key) => {
+          newState.push({
+            id: key,
+            clubName: items[key].clubName,
+            email: items[key].email,
+          });
+        });
+      }
+      this.setState({
+        items: newState,
+      });
+      console.log(this.state);
     });
   }
 
@@ -72,15 +96,8 @@ class Banner extends React.Component {
         email,
       };
       favoritesRef.push(item);
-      const { items } = this.state;
-      const prevState = this.state;
-      this.setState({
-        ...prevState,
-        items: [
-          ...items,
-          item,
-        ],
-      });
+      console.log("add")
+      this.updateItems();
       return true; // success!
     }
     return false;
@@ -89,9 +106,11 @@ class Banner extends React.Component {
   removeFavorite(clubName, email) {
     const item = this.findItem(clubName, email);
     if (item) {
-      console.log(item);
       const favoritesRef = firebase.database().ref(`favorites/${item[0].id}`);
       favoritesRef.remove();
+      this.updateItems();
+      console.log("rm");
+      // console.log(this.state.items);
       return true; // success!
     }
     return false;
