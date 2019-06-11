@@ -10,37 +10,106 @@ class Banner extends React.Component {
     this.state = {
       favorite: false,
       user: null,
+      items: [],
       coverPhoto,
       logo,
       name,
     };
     this.toggleFavorite = this.toggleFavorite.bind(this);
+    this.findItem = this.findItem.bind(this);
+    this.addFavorite = this.addFavorite.bind(this);
+    this.removeFavorite = this.removeFavorite.bind(this);
   }
 
   componentWillMount() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ user });
+    const favoritesRef = firebase.database().ref('favorites');
+    const { name } = this.state;
+    let { user } = this.state;
+    const newState = [];
+    let favorite = false;
+    firebase.auth().onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        user = userAuth;
+        this.setState({
+          user: userAuth,
+        });
       }
+    });
+    favoritesRef.on('value', (snapshot) => {
+      const items = snapshot.val();
+      if (items) {
+        Object.keys(items).forEach((key) => {
+          favorite = items[key].clubName === name && items[key].email === user.email;
+          newState.push({
+            id: key,
+            clubName: items[key].clubName,
+            email: items[key].email,
+          });
+        });
+      }
+    });
+    this.setState({
+      user,
+      favorite,
+      items: newState,
     });
   }
 
+  findItem(clubName, email) {
+    const { items } = this.state;
+    const res = items.filter((item) => {
+      return item.clubName === clubName && item.email === email;
+    });
+    return res;
+  }
+
+  addFavorite(clubName, email) {
+    // console.log(this.findItem(clubName, email));
+    if (this.findItem(clubName, email).length === 0) {
+      const favoritesRef = firebase.database().ref('favorites');
+      const item = {
+        clubName,
+        email,
+      };
+      favoritesRef.push(item);
+      const { items } = this.state;
+      const prevState = this.state;
+      this.setState({
+        ...prevState,
+        items: [
+          ...items,
+          item,
+        ],
+      });
+      return true; // success!
+    }
+    return false;
+  }
+
+  removeFavorite(clubName, email) {
+    const item = this.findItem(clubName, email);
+    if (item) {
+      console.log(item);
+      const favoritesRef = firebase.database().ref(`favorites/${item[0].id}`);
+      favoritesRef.remove();
+      return true; // success!
+    }
+    return false;
+  }
+
   toggleFavorite(clubName) {
-    const favoritesRef = firebase.database().ref('favorites');
     const {
-      // favorite,
+      favorite,
       user,
       coverPhoto,
       logo,
       name,
     } = this.state;
-    const item = {
-      clubName,
-      username: user.email,
-    };
-    favoritesRef.push(item);
+    const res = favorite
+      ? this.removeFavorite(clubName, user.email)
+      : this.addFavorite(clubName, user.email);
     this.setState({
-      favorite: true,
+      favorite: !favorite, // unsuccessful don't change
       user,
       coverPhoto,
       logo,
