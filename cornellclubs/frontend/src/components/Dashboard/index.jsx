@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
 import './index.css';
+import Favorites from './Favorites';
 
 class Dashboard extends React.Component {
   constructor() {
@@ -14,7 +15,9 @@ class Dashboard extends React.Component {
     firebase.auth().onAuthStateChanged((user) => {
       console.log(user);
       if (user) {
-        this.setState({ user });
+        this.setState({
+          user,
+        });
       }
     });
   }
@@ -28,11 +31,15 @@ class Dashboard extends React.Component {
             user
             && (
             <h1>
-              { `Hi, ${user.displayName || user.email}` }
+              { `Hi, ${user.displayName.split(' ')[0] || user.email}` }
             </h1>
             )
           }
-          <h3>Your Favorites</h3>
+          <h3>Your Favorites: </h3>
+          {
+            user
+            && <Favorites user={user} />
+          }
         </div>
       </div>
     );

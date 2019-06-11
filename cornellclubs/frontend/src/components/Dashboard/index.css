@@ -16,9 +16,12 @@
 .dashboard h1 {
   margin: 0;
   font-size: 3.5em;
+  letter-spacing: 2px;
+  font-weight: normal;
 }
 
 .dashboard h3 {
   font-size: 2.5em;
   margin-left: 1em;
+  font-weight: normal;
 }
