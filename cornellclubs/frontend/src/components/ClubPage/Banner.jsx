@@ -148,7 +148,7 @@ class Banner extends React.Component {
         <img className="logo" alt="logo" src={`./img/${logo || 'default_logo.jpg'}`} />
         <h1>{name}</h1>
         <button type="submit" onClick={() => this.toggleFavorite(name)}>
-          <FontAwesomeIcon icon="star" style={{ color: favorite ? '#ffc824' : 'white' }} />
+          <FontAwesomeIcon icon={favorite ? "star" : ["far", "star"]} style={{ color: favorite ? '#ffc824' : 'black' }} />
         </button>
       </div>
     );

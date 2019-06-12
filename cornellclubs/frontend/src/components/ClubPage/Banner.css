@@ -37,7 +37,7 @@
 .banner svg {
   width: 5em !important;
   height: 5em !important;
-  color: white;
+  background-color: white;
 }
 
 /*ffc824*/
@@ -49,4 +49,8 @@
   position: relative;
   bottom: 12vh;
   margin-left: 1em;
+}
+
+.banner button:hover svg {
+  background-color: #c4c4c4;
 }
