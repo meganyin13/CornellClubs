@@ -11,14 +11,13 @@ class Favorites extends React.Component {
       user,
       items: [],
     };
-    console.log(user);
   }
 
   componentWillMount() {
     const favoritesRef = firebase.database().ref('favorites');
     const newState = [];
     const { user } = this.state;
-    favoritesRef.on('value', (snapshot) => {
+    favoritesRef.once('value', (snapshot) => {
       const items = snapshot.val();
       if (items) {
         Object.keys(items).forEach((key) => {
@@ -30,12 +29,35 @@ class Favorites extends React.Component {
             });
           }
         });
-        console.log(newState);
       }
       this.setState({
         items: newState,
       });
-      // console.log(this.state);
+    });
+  }
+
+  componentDidMount() {
+    const favoritesRef = firebase.database().ref('favorites');
+    favoritesRef.on('child_added', (snapshot) => {
+      const { user, items } = this.state;
+      const child = snapshot.val();
+      if (child.email === user.email) {
+        this.setState({
+          items: [...items, {
+            id: snapshot.key,
+            clubName: child.clubName,
+            email: child.email,
+          }],
+        });
+      }
+    });
+    favoritesRef.on('child_removed', (snapshot) => {
+      const { items } = this.state;
+      this.setState({
+        items: items.filter((i) => {
+          return i.id !== snapshot.key;
+        }),
+      });
     });
   }
 
@@ -45,7 +67,7 @@ class Favorites extends React.Component {
       <div className="favorites">
         {
           items.map(item => (
-            <span>
+            <span key={item.id}>
               <FontAwesomeIcon icon="star" />
               <a href="/#/search/">{item.clubName}</a>
             </span>
