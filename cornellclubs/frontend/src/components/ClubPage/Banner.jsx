@@ -24,37 +24,13 @@ class Banner extends React.Component {
   }
 
   componentWillMount() {
-    const favoritesRef = firebase.database().ref('favorites');
-    const { name } = this.state;
-    let { user } = this.state;
-    const newState = [];
-    let favorite = false;
     firebase.auth().onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        user = userAuth;
         this.setState({
           user: userAuth,
         });
       }
-    });
-    favoritesRef.on('value', (snapshot) => {
-      const items = snapshot.val();
-      // console.log(items);
-      if (items) {
-        Object.keys(items).forEach((key) => {
-          favorite = items[key].clubName === name && items[key].email === user.email;
-          newState.push({
-            id: key,
-            clubName: items[key].clubName,
-            email: items[key].email,
-          });
-        });
-      }
-      this.setState({
-        user,
-        favorite,
-        items: newState,
-      });
+      this.updateItems();
     });
   }
 

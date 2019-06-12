@@ -4,6 +4,10 @@
   margin: 0 1rem;
   text-decoration: none;
   color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 85%;
 }
 
 .favorites a:hover {
@@ -18,5 +22,6 @@
 .favorites svg {
   width: 1.5rem !important;
   height: 1.5rem !important;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.6rem;
 }
+
