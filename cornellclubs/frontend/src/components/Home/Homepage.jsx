@@ -4,7 +4,7 @@ import SearchBox from './SearchBox';
 import testData from '../../data/testData';
 import Authentication from './Authentication/SignIn';
 import firebase from '../../firebase/config';
-import Profile from "./Authentication/Profile";
+import Profile from './Authentication/Profile';
 
 class Homepage extends React.Component {
   constructor() {
