@@ -3,3 +3,10 @@
   bottom: 15vh;
   width: 35vw;
 }
+
+@media (max-width: 800px) {
+  .sidebar {
+    bottom: 0;
+    width: auto;
+  }
+}

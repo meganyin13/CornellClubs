@@ -49,3 +49,23 @@
   from, to { border-color: transparent }
   50% { border-color: white; }
 }
+
+@media (max-width: 800px) {
+  .wrapper {
+    padding: 1em 0;
+  }
+
+  .dashboard {
+    width: 100vw;
+    padding: 0 2em;
+  }
+
+  .dashboard h1 {
+    font-size: 2em;
+  }
+
+  .dashboard h3 {
+    font-size: 1.5em;
+    margin: 1em 0.5em;
+  }
+}

@@ -16,3 +16,10 @@
   float: right;
   font-size: 1.25em;
 }
+
+@media (max-width: 800px) {
+  .officers {
+    display: none;
+  }
+
+}
