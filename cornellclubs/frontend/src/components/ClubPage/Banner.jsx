@@ -35,14 +35,16 @@ class Banner extends React.Component {
     favoritesRef.once('value', (snapshot) => {
       const items = snapshot.val();
       const { name, user } = this.state;
-      Object.keys(items).forEach((key) => {
-        if (items[key].clubName === name && items[key].email === user.email) {
-          this.setState({
-            favorite: true,
-            id: snapshot.key,
-          });
-        }
-      });
+      if (user) {
+        Object.keys(items).forEach((key) => {
+          if (items[key].clubName === name && items[key].email === user.email) {
+            this.setState({
+              favorite: true,
+              id: snapshot.key,
+            });
+          }
+        });
+      }
     });
   }
 
